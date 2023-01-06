@@ -1,16 +1,61 @@
-#login{
-    border: 1px solid red;
-    height: 100vh;
+:host {
+    #login {
+        height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-form{
-    display: flex;
-    flex-direction: column;
-    width: 370px;
-    padding: 20px;
-    background-color: rgb(232, 228, 222);
+        background-image: radial-gradient(circle, #2953a9, #204ba5, #1743a1, #0c3b9d, #003399);
+    }
+
+    .inputData{
+        display: flex;
+        width: 100%;
+        
+        justify-content: center;
+        align-items: center;
+        
+        input{
+            height: 57px;
+            border-bottom:1px solid black ;
+            
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        img{
+            width: 57px;
+            height: 57px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 600px;
+        height: 540px;
+
+        padding: 20px;
+
+        border-radius: 20px;
+
+        background-color: #fff;
+    
+        img{
+            width: 286px;
+            height: 90px;
+        }
+
+        input{
+            border: none;
+            width: 100%;
+        }
+    
+    }
 }
