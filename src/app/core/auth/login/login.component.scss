@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
+@import '../../../../assets/sass/variables.scss';
 
 :host {
     #login {
@@ -77,7 +78,7 @@
             font-size: 14px;
             font-weight: bold;
 
-            color: #3491ff;
+            color:var(--login-data-bg);
         }
 
         button {
@@ -91,8 +92,8 @@
             font-size: 24px;
             font-weight: bold;
 
-            color: #3491ff;
-            border: 1px solid #3491ff;
+            color: login-border;
+            border: 1px solid var(--login-data-bg);
 
             &:hover {
                 background-image: radial-gradient(circle, #2953a9, #204ba5, #1743a1, #0c3b9d, #003399);
@@ -100,7 +101,7 @@
             }
 
             &:focus{
-                border: 1px solid #3491ff;
+                border: 1px solid var(--login-data-bg);
                 outline: none;
             }
         }

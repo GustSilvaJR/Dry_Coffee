@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './core/auth/login/login.component';
+import { ForgotPasswordComponent } from './core/auth/forgot-password/forgot-password.component';
 
 const routes: Routes =[
   {
@@ -19,6 +20,12 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(x => x.AdminLayoutModule)
   }]},
+  
+  {
+    path:'redefinir-senha',
+    component: ForgotPasswordComponent
+  },
+
   {
     path: '**',
     component: LoginComponent

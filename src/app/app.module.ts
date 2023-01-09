@@ -13,6 +13,7 @@ import { AppComponent } from './mainApp/app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './core/auth/login/login.component';
+import { ForgotPasswordComponent } from './core/auth/forgot-password/forgot-password.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './core/auth/login/login.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
