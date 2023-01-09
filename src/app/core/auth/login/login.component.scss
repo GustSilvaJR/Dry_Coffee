@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
+
 :host {
     #login {
         height: 100vh;
@@ -6,29 +8,29 @@
         justify-content: center;
         align-items: center;
 
-        background-image: radial-gradient(circle, #2953a9, #204ba5, #1743a1, #0c3b9d, #003399);
+        background-image: radial-gradient(circle, #4671c8, #204ba5, #003399);
     }
 
-    .inputData{
+    #copwrite{
+        position: absolute;
+
+        color: #fff;
+        font-family: "Cinzel", serif;
+
+        bottom: 25px;
+        right: 25px;
+    }
+
+    .inputData {
         display: flex;
         width: 100%;
-        
+
         justify-content: center;
         align-items: center;
-        
-        input{
-            height: 57px;
-            border-bottom:1px solid black ;
-            
-            &:focus{
-                outline: none;
-                box-shadow: none;
-            }
-        }
 
-        img{
-            width: 57px;
-            height: 57px;
+        img {
+            width: 50px;
+            height: 50px;
         }
     }
 
@@ -38,24 +40,163 @@
         align-items: center;
         justify-content: space-between;
 
-        width: 600px;
-        height: 540px;
+        width: 530px;
+        height: 500px;
 
         padding: 20px;
 
         border-radius: 20px;
 
         background-color: #fff;
-    
-        img{
+
+        img {
             width: 286px;
             height: 90px;
         }
 
-        input{
+        input {
+            box-shadow: none;
+            outline: none;
             border: none;
             width: 100%;
+
+
+            font-size: 1.5em;
+
+            height: 57px;
+            border-bottom: 1px solid black;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
         }
-    
+
+        p {
+            font-family: "Cinzel", serif;
+            font-size: 14px;
+            font-weight: bold;
+
+            color: #3491ff;
+        }
+
+        button {
+            width: 320px;
+            height: 60px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+
+            font-family: "Cinzel", serif;
+            font-size: 24px;
+            font-weight: bold;
+
+            color: #3491ff;
+            border: 1px solid #3491ff;
+
+            &:hover {
+                background-image: radial-gradient(circle, #2953a9, #204ba5, #1743a1, #0c3b9d, #003399);
+                color: #fff;
+            }
+
+            &:focus{
+                border: 1px solid #3491ff;
+                outline: none;
+            }
+        }
     }
+
+    //MEDIA QUERIES
+
+    //Mobile xm
+    @media (max-width: 576px) {
+        form {
+            width: 300px;
+
+            button {
+                width: 140px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            input{
+                font-size: 0.9em;
+            }
+
+        }
+
+        .inputData img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    //Mobile md
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        form {
+            width: 420px;
+
+            button {
+                width: 240px;
+                font-size: 22px;
+                height: 50px;
+            }
+
+            input{
+                font-size: 1.1em;
+            }
+
+        }
+
+        .inputData img {
+            width: 28px;
+            height: 28px;
+        }
+   } 
+
+    //Tablets
+    @media (min-width: 768px) and (max-width: 991.98px){
+        form {
+            width: 470px;
+
+            button {
+                width: 310px;
+                font-size: 23px;
+                height: 52;
+            }
+
+            input{
+                font-size: 1.2em;
+            }
+
+        }
+
+        .inputData img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    //Normal Desktop
+    @media (min-width: 992px) and (max-width: 1199.98px) { 
+        form {
+            width: 500px;
+
+            button {
+                width: 310px;
+                font-size: 24px;
+                height: 55;
+            }
+
+            input{
+                font-size: 1.2em;
+            }
+
+        }
+
+        .inputData img {
+            width: 43px;
+            height: 43px;
+        }
+     }
 }
