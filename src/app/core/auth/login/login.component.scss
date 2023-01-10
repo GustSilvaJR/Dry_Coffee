@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
-@import '../../../../assets/sass/variables.scss';
+@import "../../../../assets/sass/variables.scss";
 
 :host {
     #login {
@@ -12,7 +12,7 @@
         background-image: radial-gradient(circle, #d3d9e5, #5a7bc3, #003399);
     }
 
-    #copwrite{
+    #copwrite {
         position: absolute;
 
         color: #fff;
@@ -20,6 +20,18 @@
 
         bottom: 25px;
         right: 25px;
+    }
+
+    .msg-error{
+        letter-spacing: 1px;
+        border-bottom: 1px solid red;
+        padding: 0px 6px;
+    }
+
+    .field-holder {
+        width: 100%;
+        position: relative;
+        margin-bottom: 0em;
     }
 
     .inputData {
@@ -61,16 +73,44 @@
             border: none;
             width: 100%;
 
+            padding: 0px 12px;
 
-            font-size: 1.5em;
+            font-size: 1.3em;
 
-            height: 57px;
+            height: 40px;
             border-bottom: 1px solid black;
 
             &:focus {
                 outline: none;
                 box-shadow: none;
             }
+        }
+
+        input:focus + label,
+        input:valid + label {
+            font-size: 0.9em;
+            top: -45px;
+            pointer-events: none;
+        }
+
+        label {
+            position: absolute;
+            display: flex;
+            bottom: 2px;
+            left: 15px;
+
+            height: 50px;
+            color: rgb(142, 142, 142);
+
+            pointer-events: none;
+
+            align-items: flex-end;
+
+            font-size: 1.2em;
+            font-weight: 400;
+
+            width: 100%;
+            cursor: text;
         }
 
         p {
@@ -100,8 +140,8 @@
                 color: #fff;
             }
 
-            &:focus{
-                border: 1px solid darken($color: #3491ff, $amount: 15) ;
+            &:focus {
+                border: 1px solid darken($color: #3491ff, $amount: 15);
                 outline: none;
             }
         }
@@ -120,10 +160,9 @@
                 font-size: 18px;
             }
 
-            input{
+            input {
                 font-size: 0.9em;
             }
-
         }
 
         .inputData img {
@@ -143,20 +182,19 @@
                 height: 50px;
             }
 
-            input{
+            input {
                 font-size: 1.1em;
             }
-
         }
 
         .inputData img {
             width: 28px;
             height: 28px;
         }
-   } 
+    }
 
     //Tablets
-    @media (min-width: 768px) and (max-width: 991.98px){
+    @media (min-width: 768px) and (max-width: 991.98px) {
         form {
             width: 470px;
 
@@ -166,10 +204,9 @@
                 height: 52;
             }
 
-            input{
+            input {
                 font-size: 1.2em;
             }
-
         }
 
         .inputData img {
@@ -179,7 +216,7 @@
     }
 
     //Normal Desktop
-    @media (min-width: 992px) and (max-width: 1199.98px) { 
+    @media (min-width: 992px) and (max-width: 1199.98px) {
         form {
             width: 500px;
 
@@ -189,15 +226,14 @@
                 height: 55;
             }
 
-            input{
+            input {
                 font-size: 1.2em;
             }
-
         }
 
         .inputData img {
             width: 43px;
             height: 43px;
         }
-     }
+    }
 }
