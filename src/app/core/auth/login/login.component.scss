@@ -41,7 +41,7 @@
         align-items: center;
         justify-content: space-between;
 
-        width: 530px;
+        width: 560px;
         height: 500px;
 
         padding: 20px;
@@ -78,11 +78,11 @@
             font-size: 14px;
             font-weight: bold;
 
-            color:var(--login-data-bg);
+            color: var(--login-data-bg);
         }
 
         button {
-            width: 320px;
+            width: 250px;
             height: 60px;
             text-align: center;
             background-color: #fff;
@@ -92,8 +92,8 @@
             font-size: 24px;
             font-weight: bold;
 
-            color: login-border;
-            border: 1px solid var(--login-data-bg);
+            color: #3491ff;
+            border: 1px solid #3491ff;
 
             &:hover {
                 background-image: radial-gradient(circle, #2953a9, #204ba5, #1743a1, #0c3b9d, #003399);
@@ -101,7 +101,7 @@
             }
 
             &:focus{
-                border: 1px solid var(--login-data-bg);
+                border: 1px solid darken($color: #3491ff, $amount: 15) ;
                 outline: none;
             }
         }
