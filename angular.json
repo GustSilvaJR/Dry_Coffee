@@ -55,12 +55,12 @@
               "extractLicenses": false,
               "sourceMap": false,
               "namedChunks": false,
-              "buildOptimizer": true,
+              "buildOptimizer": false,
               "optimization": {
-                "scripts": true,
+                "scripts": false,
                 "styles": {
-                  "minify": true,
-                  "inlineCritical": true
+                  "minify": false,
+                  "inlineCritical": false
                 },
                 "fonts": true
               },
