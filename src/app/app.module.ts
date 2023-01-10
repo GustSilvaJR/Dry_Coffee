@@ -11,9 +11,11 @@ import { SidebarModule } from './sidebar/sidebar.module';
 
 import { AppComponent } from './mainApp/app.component';
 
+//Components
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './core/auth/login/login.component';
 import { ForgotPasswordComponent } from './core/auth/forgot-password/forgot-password.component';
+import { LoginFooterComponent } from './core/auth/shared/login-footer/login-footer.component';
 
 @NgModule({
   imports: [
@@ -30,7 +32,8 @@ import { ForgotPasswordComponent } from './core/auth/forgot-password/forgot-pass
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    LoginFooterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
