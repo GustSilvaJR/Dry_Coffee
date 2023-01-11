@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
+@import "../../../../../assets/sass/variables.scss";
+
+:host {
+    #login {
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-image: radial-gradient(circle, #d3d9e5, #5a7bc3, #003399);
+    }
+
+    #copwrite {
+        position: absolute;
+
+        color: #fff;
+        font-family: "Cinzel", serif;
+
+        bottom: 25px;
+        right: 25px;
+    }
+
+    .msg-error{
+        letter-spacing: 1px;
+        border-bottom: 1px solid red;
+        padding: 0px 6px;
+    }
+
+    .field-holder {
+        width: 100%;
+        position: relative;
+        margin-bottom: 0em;
+    }
+
+    .inputData {
+        display: flex;
+        width: 100%;
+
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 560px;
+        height: 500px;
+
+        padding: 20px;
+
+        border-radius: 20px;
+
+        background-color: #fff;
+
+        img {
+            width: 286px;
+            height: 90px;
+        }
+
+        input {
+            box-shadow: none;
+            outline: none;
+            border: none;
+            width: 100%;
+
+            padding: 0px 12px;
+
+            font-size: 1.3em;
+
+            height: 40px;
+            border-bottom: 1px solid black;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        input:focus + label,
+        input:valid + label {
+            font-size: 0.9em;
+            top: -45px;
+            pointer-events: none;
+        }
+
+        label {
+            position: absolute;
+            display: flex;
+            bottom: 2px;
+            left: 15px;
+
+            height: 50px;
+            color: rgb(142, 142, 142);
+
+            pointer-events: none;
+
+            align-items: flex-end;
+
+            font-size: 1.2em;
+            font-weight: 400;
+
+            width: 100%;
+            cursor: text;
+        }
+
+        p {
+            font-family: "Cinzel", serif;
+            font-size: 14px;
+            font-weight: bold;
+
+            color: var(--login-data-bg);
+        }
+
+        button {
+            width: 250px;
+            height: 60px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+
+            font-family: "Cinzel", serif;
+            font-size: 24px;
+            font-weight: bold;
+
+            color: #3491ff;
+            border: 1px solid #3491ff;
+
+            &:hover {
+                background-image: radial-gradient(circle, #2953a9, #204ba5, #1743a1, #0c3b9d, #003399);
+                color: #fff;
+            }
+
+            &:focus {
+                border: 1px solid darken($color: #3491ff, $amount: 15);
+                outline: none;
+            }
+        }
+    }
+
+    //MEDIA QUERIES
+
+    //Mobile xm
+    @media (max-width: 576px) {
+        form {
+            width: 300px;
+
+            button {
+                width: 140px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            input {
+                font-size: 0.9em;
+            }
+        }
+
+        .inputData img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    //Mobile md
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        form {
+            width: 420px;
+
+            button {
+                width: 240px;
+                font-size: 22px;
+                height: 50px;
+            }
+
+            input {
+                font-size: 1.1em;
+            }
+        }
+
+        .inputData img {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    //Tablets
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        form {
+            width: 470px;
+
+            button {
+                width: 310px;
+                font-size: 23px;
+                height: 52;
+            }
+
+            input {
+                font-size: 1.2em;
+            }
+        }
+
+        .inputData img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    //Normal Desktop
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+        form {
+            width: 500px;
+
+            button {
+                width: 310px;
+                font-size: 24px;
+                height: 55;
+            }
+
+            input {
+                font-size: 1.2em;
+            }
+        }
+
+        .inputData img {
+            width: 43px;
+            height: 43px;
+        }
+    }
+}
