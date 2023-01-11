@@ -13,9 +13,9 @@ import { AppComponent } from './mainApp/app.component';
 
 //Components
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent } from './core/auth/login/login.component';
-import { ForgotPasswordComponent } from './core/auth/forgot-password/forgot-password.component';
-import { LoginFooterComponent } from './core/auth/shared/login-footer/login-footer.component';
+import { LoginComponent } from './core/components/auth/login/login.component';
+import { ForgotPasswordComponent } from './core/components/auth/forgot-password/forgot-password.component';
+import { LoginFooterComponent } from './core/components/auth/shared/login-footer/login-footer.component';
 
 @NgModule({
   imports: [
