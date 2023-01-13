@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ForgotPassService } from 'app/core/services/forgotPass/forgot-pass.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   public msgError:string = "";
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder, private forgotPassService:ForgotPassService) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +26,8 @@ export class ForgotPasswordComponent implements OnInit {
       alert("E-mail enviado com sucesso!");
       this.msgError = "";
     }else{
-      this.msgError = "E-mail não cadastrado!"
+      this.forgotPassService.sendForgotPass();
+      this.msgError = "E-mail não cadastrado!";
     }
   }
 
