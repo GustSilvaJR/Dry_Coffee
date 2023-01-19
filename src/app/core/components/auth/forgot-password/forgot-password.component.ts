@@ -10,9 +10,9 @@ import { ForgotPassService } from 'app/core/services/forgotPass/forgot-pass.serv
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  public msgError:string = "";
+  public msgError: string = "";
 
-  constructor(private formBuilder:FormBuilder, private forgotPassService:ForgotPassService) { }
+  constructor(private formBuilder: FormBuilder, private forgotPassService: ForgotPassService) { }
 
   ngOnInit(): void {
   }
@@ -21,14 +21,30 @@ export class ForgotPasswordComponent implements OnInit {
     email: ['', [Validators.email]]
   });
 
-  public submitEmail():void{
-    if(false){
-      alert("E-mail enviado com sucesso!");
-      this.msgError = "";
-    }else{
-      this.forgotPassService.sendForgotPass();
-      this.msgError = "E-mail não cadastrado!";
-    }
+  public submitEmail(): void {
+
+    const email = this.formForgotPass.get('email').value;
+
+    this.forgotPassService.sendEmailRec(email).subscribe({
+      next: (res) => {
+        if (!res.exists) {
+          this.msgError = "E-mail não cadastrado!";
+        } else {
+          this.msgError = "Link de recuperação enviado para seu e-mail.";
+        }
+      },
+
+      error: (err) => {
+        console.log("Error :");
+        console.log(err);
+
+        this.msgError = "Servidor com problemas! Entre em contato com o administrador ou tente novamente mais tarde.";
+
+
+      }
+    })
+
+
   }
 
 }
