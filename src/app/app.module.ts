@@ -13,28 +13,24 @@ import { AppComponent } from './mainApp/app.component';
 
 //Components
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent } from './core/components/auth/login/login.component';
-import { ForgotPasswordComponent } from './core/components/auth/forgot-password/forgot-password.component';
-import { LoginFooterComponent } from './core/components/auth/shared/login-footer/login-footer.component';
+import { CoreModule } from './core/core.module';
+
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
-    FormsModule,
     RouterModule,
-    HttpClientModule,
+    AppRoutingModule,
+
     NavbarModule,
     FooterModule,
     SidebarModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+
+    CoreModule,
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    LoginComponent,
-    ForgotPasswordComponent,
-    LoginFooterComponent
+    AdminLayoutComponent,  
   ],
   providers: [],
   bootstrap: [AppComponent]
