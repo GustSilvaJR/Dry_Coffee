@@ -27,10 +27,11 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.forgotPassService.sendEmailRec(email).subscribe({
       next: (res) => {
-        if (!res.exists) {
-          this.msgError = "E-mail não cadastrado!";
-        } else {
-          this.msgError = "Link de recuperação enviado para seu e-mail.";
+        if(!res.exists){
+          this.msgError = res.msg;
+        }else{
+          this.msgError = "";
+          alert(res.msg);
         }
       },
 
@@ -38,8 +39,7 @@ export class ForgotPasswordComponent implements OnInit {
         console.log("Error :");
         console.log(err);
 
-        this.msgError = "Servidor com problemas! Entre em contato com o administrador ou tente novamente mais tarde.";
-
+        this.msgError = "Servidor com problemas! Entre em contato com o administrador.";
 
       }
     })

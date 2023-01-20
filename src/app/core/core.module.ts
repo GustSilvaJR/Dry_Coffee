@@ -9,6 +9,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { LoginFooterComponent } from './components/auth/shared/login-footer/login-footer.component';
 import { SignInService } from './services/signIn/sign-in.service';
+import { ForgotPassService } from './services/forgotPass/forgot-pass.service';
 
 
 
@@ -28,6 +29,7 @@ import { SignInService } from './services/signIn/sign-in.service';
   ],
   providers:[
     SignInService,
+    ForgotPassService,
   ]
 })
 export class CoreModule { }

@@ -13,7 +13,7 @@ export class ForgotPassService {
   constructor( private httpClient:HttpClient) { }
 
   public sendEmailRec(email:string):Observable<any> {
-    return this.httpClient.post<any>(this.url, email).pipe(
+    return this.httpClient.post<any>(this.url, {email:email}).pipe(
       res =>{
         console.log(res);
         return res;
