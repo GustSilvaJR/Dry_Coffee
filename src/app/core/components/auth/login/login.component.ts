@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignInService } from 'app/core/services/signIn/sign-in.service';
 import { Md5 } from 'ts-md5';
+import { environment } from 'environments/environment';
 
 import { LoginDTO } from 'app/core/interfaces/loginDTO';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   public msgError: string = "";
 
-  constructor(private formBuilder: FormBuilder, private signInService: SignInService) { }
+  constructor(private formBuilder: FormBuilder, private signInService: SignInService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -37,10 +39,33 @@ export class LoginComponent implements OnInit {
       next: (res) => {
 
         if (!res.auth) {
-          alert("Formulário enviado com sucesso!");
           this.msgError = res.msg;
+
+          console.log(document.querySelector('#error'));
+          const span = document.querySelector('#error');
+          if(span){
+            
+            span.classList.remove('animate-error');
+
+            setTimeout(() => {
+              span.classList.add('animate-error');  
+            }, 0.2);
+            
+          }
         } else {
           this.msgError = '';
+
+          console.log(res);
+
+          environment.adress = res.adress;
+
+          localStorage.removeItem('access_token');
+          localStorage.setItem('access_token', res.token);
+          
+          this.router.navigate(['/dashboard']);
+
+          console.log(environment);
+
         }
 
       },

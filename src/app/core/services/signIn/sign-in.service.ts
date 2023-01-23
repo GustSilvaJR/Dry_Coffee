@@ -2,6 +2,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import jwt from 'jsonwebtoken';
+
+
 //Observable
 import { Observable} from 'rxjs';
 
@@ -31,6 +34,15 @@ export class SignInService {
         return error;
       }
     )
+  }
+
+  public isAuthenticated():boolean{
+    const token = localStorage.getItem('access_token');
+    
+    if(!token) return false;
+
+    return !jwt.JsonWebTokenError
+    
   }
 
 }
