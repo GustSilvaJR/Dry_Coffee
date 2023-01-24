@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import jwt from 'jsonwebtoken';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 //Observable
@@ -16,7 +16,7 @@ export class SignInService {
 
   private url:string = "http://localhost:8000/login";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private jwt:JwtHelperService) { }
 
   public signIn({email, password}):Observable<any>{
     const data:LoginDTO = {
@@ -41,7 +41,7 @@ export class SignInService {
     
     if(!token) return false;
 
-    return !jwt.JsonWebTokenError
+    return !this.jwt.isTokenExpired(token);
     
   }
 
