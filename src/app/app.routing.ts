@@ -12,8 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
-    pathMatch: 'full',
-    canActivate: [AuthGuard]
+    pathMatch: 'full'
   },
 
   {
@@ -23,7 +22,8 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(x => x.AdminLayoutModule)
-      }]
+      }],
+      canActivate: [AuthGuard]
   },
 
   {
