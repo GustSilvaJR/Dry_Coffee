@@ -28,9 +28,8 @@
         <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a  [routerLink]="[menuItem.path]">
-                <i class="{{menuItem.icon}}"></i>
-                <!-- <img src="./assets/img/sidebar/form.png"> -->
-                
+                <!-- <i class="{{}}"></i> -->
+                <img style="height: 30px; width: 30px; float: left;" src="{{menuItem.icon}}">
                 <p>{{menuItem.title}}</p>
             </a>
         </li>

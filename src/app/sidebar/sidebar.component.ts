@@ -8,15 +8,15 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
-    { path: '/dashboard', title: 'Entrada',  icon: 'pe-7s-graph', class: '' },
-    { path: '/dashboard', title: 'Terreirao',  icon: 'pe-7s-graph', class: '' },
-    { path: '/dashboard', title: 'Lavador',  icon: 'pe-7s-graph', class: '' },
-    { path: '/dashboard', title: 'Pré-Secagem',  icon: 'pe-7s-graph', class: '' },
-    { path: '/dashboard', title: 'Secador',  icon: 'pe-7s-graph', class: '' },
-    { path: '/dashboard', title: 'Moega Descanso',  icon: 'pe-7s-graph', class: '' },
-    { path: '/dashboard', title: 'Tulha',  icon: 'pe-7s-graph', class: '' },
-    { path: '/dashboard', title: 'Benefício',  icon: 'pe-7s-graph', class: '' }
+    { path: '/dashboard', title: 'Dashboard',  icon: './assets/img/sidebar/dashboard (1).png', class: '' },
+    { path: '/dashboard', title: 'Entrada',  icon: './assets/img/sidebar/entrada.png', class: '' },
+    { path: '/dashboard', title: 'Terreirao',  icon: './assets/img/sidebar/terreiro.png', class: '' },
+    { path: '/dashboard', title: 'Lavador',  icon: './assets/img/sidebar/lavagem.png', class: '' },
+    { path: '/dashboard', title: 'Pré-Secagem',  icon: './assets/img/sidebar/maquina.png', class: '' },
+    { path: '/dashboard', title: 'Secador',  icon: './assets/img/sidebar/maquina.png', class: '' },
+    { path: '/dashboard', title: 'Moega Descanso',  icon: './assets/img/sidebar/maquina.png', class: '' },
+    { path: '/dashboard', title: 'Tulha',  icon: './assets/img/sidebar/tulha.png', class: '' },
+    { path: '/dashboard', title: 'Benefício',  icon: './assets/img/sidebar/beneficios.png', class: '' }
 ];
 
 @Component({
