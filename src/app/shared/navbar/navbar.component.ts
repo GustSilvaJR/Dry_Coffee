@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../../sidebar/sidebar.component';
+import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { LogoutService } from 'app/core/services/logout/logout.service';
 
@@ -57,8 +57,6 @@ export class NavbarComponent implements OnInit{
 
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
-      console.log(this.listTitles);
-      console.log("Title:",titlee)
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
       }
