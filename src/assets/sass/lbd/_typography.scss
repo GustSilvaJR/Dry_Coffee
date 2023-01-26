@@ -1,5 +1,6 @@
 /*           Font Smoothing      */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
 body,
 h1, .h1, 
@@ -19,7 +20,7 @@ td,
 button.close{
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+    font-family: "Ubuntu","Roboto","Helvetica Neue",Arial,sans-serif;
     font-weight: $font-weight-normal;
 }
 

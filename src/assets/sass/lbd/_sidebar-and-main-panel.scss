@@ -1,3 +1,5 @@
+
+
 .sidebar,
 .bootstrap-navbar {
     position: absolute;
@@ -53,7 +55,6 @@
         }
 
         .simple-text {
-            text-transform: uppercase;
             padding: $padding-small-vertical $padding-zero;
             display: block;
             font-size: $font-size-large;
@@ -141,11 +142,12 @@
         p {
             margin: 0;
             line-height: 30px;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 550;
             text-transform: uppercase;
             margin-left: 45px;
             color: $white-color;
+            letter-spacing: 0.8px;
         }
 
         i {
@@ -179,13 +181,13 @@
         }
 
         .simple-text {
-            text-transform: uppercase;
+
             padding: 5px 0px 5px 15px;
             display: block;
             font-size: $font-size-large;
             color: $white-color;
             text-align: left;
-            font-weight: $font-weight-normal;
+            font-weight: $font-weight-bold;
             line-height: 30px;
         }
     }
