@@ -7,12 +7,12 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
-import { SidebarModule } from './sidebar/sidebar.module';
+import { SidebarModule } from './shared/sidebar/sidebar.module';
 
 import { AppComponent } from './mainApp/app.component';
 
 //Components
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AdminLayoutComponent } from './pages/admin-layout/admin-layout.component';
 import { CoreModule } from './core/core.module';
 
 
