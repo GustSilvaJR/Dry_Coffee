@@ -1,7 +1,29 @@
+.mat-sort-header{
+    text-align: center;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.mat-sort-header-container{
+    justify-content: center;
+}
+
+div{
+    justify-content: center;
+    text-align: center;
+}
+
 table {
+    font-family: "Ubuntu","Roboto","Helvetica Neue",Arial,sans-serif;
     width: 100%;
+    text-align: center;
 
     th{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
         background-color: cadetblue;
         color: white;
     }
