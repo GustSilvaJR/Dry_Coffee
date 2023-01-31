@@ -5,6 +5,7 @@ import { TabelaEntradasComponent } from './tabela-entradas/tabela-entradas.compo
 //Angular material
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CommonModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSortModule,
   ]
 })
 export class EntradaModule { }
