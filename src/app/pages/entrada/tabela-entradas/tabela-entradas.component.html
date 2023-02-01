@@ -50,8 +50,13 @@
     <!-- Coluna Ação -->
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef> </th>
-      <td mat-cell *matCellDef="let element">
-        <img style="width: 45px; height: 45px; margin:10px 0px; align-items: center;" src="./assets/img/button_actions/reg.png" />
+      <td class="action" mat-cell *matCellDef="let element">
+        <a  routerLink='/dashboard' >
+          <img
+            src="./assets/img/button_actions/reg.png" 
+            data-id="{{element.nde}}"
+            />
+        </a>
       </td>
     </ng-container>
 
