@@ -43,6 +43,8 @@
 // Fancy Stuff
 @import "lbd/dropdown";
 
+
+//Reset de estilos dos componentes do Angular Materials
 .text-right, .mat-sort-header-container {
     justify-content: center;
 }
@@ -51,10 +53,17 @@
     background-color: white;
 }
 
-
 .mat-sort-header-pointer-left,
 .mat-sort-header-pointer-right,
 .mat-sort-header-pointer-middle,
 .mat-sort-header-stem{
     background-color: white !important;
+}
+
+.mat-dialog-container{
+    padding: 0px !important;
+}
+
+a.mat-raised-button{
+    margin: 15px;
 }

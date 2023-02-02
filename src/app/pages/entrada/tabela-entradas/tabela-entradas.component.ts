@@ -1,10 +1,12 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, Inject } from '@angular/core';
 
 //Angular Material
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import {MatSort, Sort} from '@angular/material/sort';
-import {MatPaginator, MatPaginatorIntl} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { EntradaDetalhesComponent } from '../entrada-detalhes/entrada-detalhes.component';
 
 @Component({
   selector: 'app-tabela-entradas',
@@ -13,12 +15,26 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class TabelaEntradasComponent implements OnInit, AfterViewInit {
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private _matPaginatorIntl:MatPaginatorIntl) { }
+  public animal: string;
+  public name: string;
+
+  constructor(private _liveAnnouncer: LiveAnnouncer, private _matPaginatorIntl: MatPaginatorIntl, public dialog: MatDialog) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  openDialog(nde: string): void {
+    console.log(nde);
 
+    const dialogRef = this.dialog.open(EntradaDetalhesComponent, {
+      data: { nde: nde, animal: this.animal },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 
   displayedColumns: string[] = ['nde', 'produtor', 'cod_produtor', 'fazenda', 'placa', 'motorista', 'data', 'acoes'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -29,14 +45,16 @@ export class TabelaEntradasComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this._matPaginatorIntl.itemsPerPageLabel="";
-    this._matPaginatorIntl.nextPageLabel="Próximo";
-    this._matPaginatorIntl.previousPageLabel="Anterior"
+    this._matPaginatorIntl.itemsPerPageLabel = "";
+    this._matPaginatorIntl.nextPageLabel = "Próximo";
+    this._matPaginatorIntl.previousPageLabel = "Anterior";
+    this._matPaginatorIntl.firstPageLabel = "Primeira Página";
+    this._matPaginatorIntl.lastPageLabel = "Ultima Página";
   }
 
   /** Announce the change in sort state for assistive technology. */
   announceSortChange(sortState: Sort) {
-   
+
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
@@ -54,24 +72,24 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {nde: '1', produtor: 'Hydrogen', cod_produtor: '1.0079', fazenda: 'H'},
-  {nde: '2', produtor: 'Helium', cod_produtor: '4.0026', fazenda: 'He'},
-  {nde: '3', produtor: 'Lithium', cod_produtor: '6.941', fazenda: 'Li'},
-  {nde: '4', produtor: 'Beryllium', cod_produtor: '9.0122', fazenda: 'Be'},
-  {nde: '5', produtor: 'Boron', cod_produtor: '10.811', fazenda: 'B'},
-  {nde: '6', produtor: 'Carbon', cod_produtor: '12.0107', fazenda: 'C'},
-  {nde: '7', produtor: 'Nitrogen', cod_produtor: '14.0067', fazenda: 'N'},
-  {nde: '8', produtor: 'Oxygen', cod_produtor: '15.9994', fazenda: 'O'},
-  {nde: '9', produtor: 'Fluorine', cod_produtor: '18.9984', fazenda: 'F'},
-  {nde: '10', produtor: 'Neon', cod_produtor: '20.1797', fazenda: 'Ne'},
-  {nde: '11', produtor: 'Sodium', cod_produtor: '22.9897', fazenda: 'Na'},
-  {nde: '12', produtor: 'Magnesium', cod_produtor: '24.305', fazenda: 'Mg'},
-  {nde: '13', produtor: 'Aluminum', cod_produtor: '26.9815', fazenda: 'Al'},
-  {nde: '14', produtor: 'Silicon', cod_produtor: '28.0855', fazenda: 'Si'},
-  {nde: '15', produtor: 'Phosphorus', cod_produtor: '30.9738', fazenda: 'P'},
-  {nde: '16', produtor: 'Sulfur', cod_produtor: '32.065', fazenda: 'S'},
-  {nde: '17', produtor: 'Chlorine', cod_produtor: '35.453', fazenda: 'Cl'},
-  {nde: '18', produtor: 'Argon', cod_produtor: '39.948', fazenda: 'Ar'},
-  {nde: '19', produtor: 'Potassium', cod_produtor: '39.0983', fazenda: 'K'},
-  {nde: '20', produtor: 'Calcium', cod_produtor: '40.078', fazenda: 'Ca'},
+  { nde: '1', produtor: 'Hydrogen', cod_produtor: '1.0079', fazenda: 'H' },
+  { nde: '2', produtor: 'Helium', cod_produtor: '4.0026', fazenda: 'He' },
+  { nde: '3', produtor: 'Lithium', cod_produtor: '6.941', fazenda: 'Li' },
+  { nde: '4', produtor: 'Beryllium', cod_produtor: '9.0122', fazenda: 'Be' },
+  { nde: '5', produtor: 'Boron', cod_produtor: '10.811', fazenda: 'B' },
+  { nde: '6', produtor: 'Carbon', cod_produtor: '12.0107', fazenda: 'C' },
+  { nde: '7', produtor: 'Nitrogen', cod_produtor: '14.0067', fazenda: 'N' },
+  { nde: '8', produtor: 'Oxygen', cod_produtor: '15.9994', fazenda: 'O' },
+  { nde: '9', produtor: 'Fluorine', cod_produtor: '18.9984', fazenda: 'F' },
+  { nde: '10', produtor: 'Neon', cod_produtor: '20.1797', fazenda: 'Ne' },
+  { nde: '11', produtor: 'Sodium', cod_produtor: '22.9897', fazenda: 'Na' },
+  { nde: '12', produtor: 'Magnesium', cod_produtor: '24.305', fazenda: 'Mg' },
+  { nde: '13', produtor: 'Aluminum', cod_produtor: '26.9815', fazenda: 'Al' },
+  { nde: '14', produtor: 'Silicon', cod_produtor: '28.0855', fazenda: 'Si' },
+  { nde: '15', produtor: 'Phosphorus', cod_produtor: '30.9738', fazenda: 'P' },
+  { nde: '16', produtor: 'Sulfur', cod_produtor: '32.065', fazenda: 'S' },
+  { nde: '17', produtor: 'Chlorine', cod_produtor: '35.453', fazenda: 'Cl' },
+  { nde: '18', produtor: 'Argon', cod_produtor: '39.948', fazenda: 'Ar' },
+  { nde: '19', produtor: 'Potassium', cod_produtor: '39.0983', fazenda: 'K' },
+  { nde: '20', produtor: 'Calcium', cod_produtor: '40.078', fazenda: 'Ca' },
 ];

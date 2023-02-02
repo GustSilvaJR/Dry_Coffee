@@ -1,21 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TabelaEntradasComponent } from './tabela-entradas/tabela-entradas.component';
-
-//Angular material
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+//Angular material
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { EntradaDetalhesComponent } from './entrada-detalhes/entrada-detalhes.component';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
-    TabelaEntradasComponent
+    TabelaEntradasComponent, EntradaDetalhesComponent
   ],
   imports: [
     CommonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatDialogModule,
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
