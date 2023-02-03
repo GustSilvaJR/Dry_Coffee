@@ -14,12 +14,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { EntradaDetalhesComponent } from './entrada-detalhes/entrada-detalhes.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     TabelaEntradasComponent, EntradaDetalhesComponent
   ],
   imports: [
+    MatSelectModule,
     CommonModule,
     MatInputModule,
     MatFormFieldModule,
