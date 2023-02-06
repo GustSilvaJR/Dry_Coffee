@@ -1,0 +1,59 @@
+<div id="modal-entrada">
+    <form [formGroup]="formEntrada">
+
+        <div class="row input-row">
+               
+            <mat-form-field [ngClass]="{'col-md-5': celulaIsVisible, 'col-md-10': celulaIsVisible == false}"     appearance="fill">
+                <mat-label>Setor</mat-label>
+                <mat-select (selectionChange)="setorAux()" formControlName="setor">
+                  <mat-option *ngFor="let setor of setores" [value]="setor.name">
+                    {{setor.name}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="celulaIsVisible" class="col-md-5">
+                <mat-label>Equipamento</mat-label>
+                <input matInput placeholder="" formControlName="equipamento" >
+            </mat-form-field>
+
+        </div>
+
+        <div class="row input-row">
+
+            <mat-form-field *ngIf="celulaIsVisible" class="col-md-5" appearance="fill">
+                <mat-label>Célula</mat-label>
+                <mat-select formControlName="celula">
+                  <mat-option *ngFor="let celula of celulas" [value]="celula.value">
+                    {{celula.value}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field [ngClass]="{'col-md-5': celulaIsVisible, 'col-md-10': celulaIsVisible == false}" >
+                <mat-label>Peso da medida</mat-label>
+                <input type="number" matInput placeholder="" formControlName="peso_medida">
+            </mat-form-field>
+
+        </div>
+
+        <div class="row input-row">
+
+            <mat-form-field class="col-md-5">
+                <mat-label>Medida do produtor</mat-label>
+                <input type="number" matInput placeholder="" formControlName="medida_produtor">
+            </mat-form-field>
+
+            <div class="col-md-5"></div>
+
+        </div>
+
+        <div class="buttons" >
+            <button mat-flat-button (click)="sendForm()" mat-dialog-close color="primary">Enviar</button>
+            <button mat-flat-button mat-dialog-close color="warn">Cancelar</button>
+            <!-- <button mat-button mat-dialog-close>No</button> -->
+        </div>
+
+
+    </form>
+</div>
