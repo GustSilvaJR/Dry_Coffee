@@ -24,7 +24,7 @@
             <mat-form-field *ngIf="celulaIsVisible" class="col-md-5" appearance="fill">
                 <mat-label>Célula</mat-label>
                 <mat-select formControlName="celula">
-                  <mat-option *ngFor="let celula of celulas" [value]="celula.value">
+                  <mat-option *ngFor="let celula of celulasAvailables" [value]="celula.value">
                     {{celula.value}}
                   </mat-option>
                 </mat-select>
