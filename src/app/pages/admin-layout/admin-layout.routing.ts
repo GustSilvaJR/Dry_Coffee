@@ -6,8 +6,19 @@ import { UserComponent } from '../user/user.component';
 import { TabelaTerreiroComponent } from '../terreiro/components/tabela-terreiro/tabela-terreiro.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: HomeComponent },
-    { path: 'user',           component: UserComponent },
-    { path: 'entrada',         component: TabelaEntradasComponent },
-    { path: 'terreiro',         component: TabelaTerreiroComponent },
+    { path: 'dashboard', component: HomeComponent },
+    {
+        path: 'user',
+        component: UserComponent,
+    },
+    {
+        path: 'entrada',
+        component: TabelaEntradasComponent, 
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./../entrada/entrada.routing').then(x => x.EntradaRoutes)
+            }],
+    },
+    { path: 'terreiro', component: TabelaTerreiroComponent },
 ];
