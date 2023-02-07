@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { EntradaDetalhesComponent } from './components/entrada-detalhes/entrada-detalhes.component';
+import { EntradaRoutes } from './entrada.routing';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EntradaDetalhesComponent } from './components/entrada-detalhes/entrada-
     EntradaDetalhesComponent
   ],
   imports: [
+    RouterModule.forChild(EntradaRoutes),
     MatSelectModule,
     CommonModule,
     MatInputModule,
