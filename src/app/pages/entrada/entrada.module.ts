@@ -18,7 +18,8 @@ import { EntradaDetalhesComponent } from './components/entrada-detalhes/entrada-
 
 @NgModule({
   declarations: [
-    TabelaEntradasComponent, EntradaDetalhesComponent
+    TabelaEntradasComponent, 
+    EntradaDetalhesComponent
   ],
   imports: [
     MatSelectModule,
