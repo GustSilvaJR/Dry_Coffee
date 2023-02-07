@@ -3,7 +3,7 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminLayoutComponent } from './pages/admin-layout/admin-layout.component';
+import { AdminLayoutComponent } from './pages/admin-layout/admin/admin-layout.component';
 import { LoginComponent } from './core/components/auth/login/login.component';
 import { ForgotPasswordComponent } from './core/components/auth/forgot-password/forgot-password.component';
 import { AuthGuard } from './core/guards/auth.guard';
