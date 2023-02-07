@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location, PopStateEvent } from '@angular/common';
+import { NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -10,7 +12,7 @@ declare interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-  { path: '/dashboard', title: 'Dashboard', icon: './assets/img/sidebar/dashboard (1).png', class: '' },
+  { path: '/dashboard', title: 'Dashboard', icon: './assets/img/sidebar/dashboard.png', class: 'active' },
   { path: '/entrada', title: 'Entrada', icon: './assets/img/sidebar/entrada.png', class: '' },
   { path: '/terreiro', title: 'Terreiro', icon: './assets/img/sidebar/terreiro.png', class: '' },
   { path: '/lavador', title: 'Lavador', icon: './assets/img/sidebar/lavagem.png', class: '' },
@@ -26,29 +28,35 @@ export const ROUTES: RouteInfo[] = [
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
-  menuItems: any[];
+  public menuItems: any[];
+  public url: string;
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private router: Router) {
+
+    router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+
+      this.url = event.url;
+
+      let item = this.menuItems.map((item) => {
+
+        if (item.path == this.url) {
+
+          item.class = 'active';
+
+        } else {
+
+          item.class = '';
+
+        }
+      });
+    });
+
+  }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
-
-    var titlee = this.location.prepareExternalUrl(this.location.path());
-    titlee = titlee.slice(1);
-
-    console.log(titlee)
-
-    let item = this.menuItems.map((item) => {
-      console.log(item.path+" | "+titlee);
-      if(item.path == titlee){
-        item.class = 'active';
-      }else{
-        item.class = '';
-      }
-    });
-
-    console.log(item);
-
   }
 
   isMobileMenu() {
