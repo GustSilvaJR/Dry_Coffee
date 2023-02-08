@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import { LbdModule } from '../lbd/lbd.module';
-import { NguiMapModule} from '@ngui/map';
+import { NguiMapModule } from '@ngui/map';
+import { LbdModule } from '../dashboard/lbd/lbd.module';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
-import { HomeComponent } from '../home/home.component';
-import { UserComponent } from '../user/user.component';
+import { HomeComponent } from '../dashboard/home/home.component';
 import { EntradaModule } from '../entrada/entrada.module';
+import { UserComponent } from '../user/user.component';
 
 @NgModule({
   imports: [
