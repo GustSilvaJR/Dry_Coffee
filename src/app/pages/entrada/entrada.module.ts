@@ -3,7 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 import { TabelaEntradasComponent } from './components/tabela-entradas/tabela-entradas.component';
+import { EntradaDetalhesComponent } from './components/entrada-detalhes/entrada-detalhes.component';
+import { EntradaRoutes } from './entrada.routing';
+import { SharedModule } from '../shared/shared.module';
 
 //Angular material
 import { MatButtonModule } from '@angular/material/button';
@@ -14,8 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { EntradaDetalhesComponent } from './components/entrada-detalhes/entrada-detalhes.component';
-import { EntradaRoutes } from './entrada.routing';
+
 
 @NgModule({
   declarations: [
@@ -23,20 +26,9 @@ import { EntradaRoutes } from './entrada.routing';
     EntradaDetalhesComponent
   ],
   imports: [
+    SharedModule,
     RouterModule.forChild(EntradaRoutes),
-    MatSelectModule,
     CommonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatDialogModule,
-    HttpClientModule,
-    RouterModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
   ]
 })
 export class EntradaModule { }
