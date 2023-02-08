@@ -14,7 +14,6 @@ import { AppComponent } from './mainApp/app.component';
 //Components
 import { AdminLayoutComponent } from './pages/admin-layout/admin/admin-layout.component';
 import { CoreModule } from './core/core.module';
-import { TabelaTerreiroComponent } from './pages/terreiro/components/tabela-terreiro/tabela-terreiro.component';
 
 
 @NgModule({
@@ -31,8 +30,7 @@ import { TabelaTerreiroComponent } from './pages/terreiro/components/tabela-terr
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    TabelaTerreiroComponent,  
+    AdminLayoutComponent,  
   ],
   providers: [],
   bootstrap: [AppComponent]
