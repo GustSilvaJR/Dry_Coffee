@@ -1,0 +1,43 @@
+form {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.buttons {
+
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    padding-right: 15px;
+
+    button {
+        width: 100px;
+        margin: 15px;
+    }
+}
+
+#modal-entrada {
+    height: 70vh;
+    width: 75vw;
+    overflow-x: hidden;
+    padding: 20px;
+
+    border-radius: 7px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
