@@ -1,0 +1,44 @@
+.mat-sort-header {
+    text-align: center;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.mat-sort-header-container {
+    justify-content: center;
+}
+
+.action {
+    img {
+        width: 37px;
+        height: 37px;
+        margin: 10px 0px;
+        align-items: center;
+    }
+    img:hover{
+        cursor: pointer;
+    }
+}
+
+div {
+    justify-content: center;
+    text-align: center;
+}
+
+table {
+    font-family: "Ubuntu", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    width: 100%;
+    text-align: center;
+
+    th {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        background-color: cadetblue;
+        color: white;
+    }
+}
+
+

@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { TerreiroDetalhesComponent } from '../terreiro-detalhes/terreiro-detalhes.component';
 
 @Component({
   selector: 'app-tabela-terreiro',
@@ -23,7 +24,7 @@ export class TabelaTerreiroComponent implements OnInit, AfterViewInit {
   //Instanciando tabela
   public dataSource: MatTableDataSource<Terreiro>;
 
-  public displayedColumns: string[] = ['Column1','Column2','Column3','Column4'];
+  public displayedColumns: string[] = ['Column1','Column2','Column3','Column4', 'acoes'];
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
@@ -61,7 +62,13 @@ export class TabelaTerreiroComponent implements OnInit, AfterViewInit {
   }
 
   openDialog(): void {
-    console.log("to be implemented");
+    const dialogRef = this.dialog.open(TerreiroDetalhesComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+
   }
 
   announceSortChange(sortState: Sort) {
