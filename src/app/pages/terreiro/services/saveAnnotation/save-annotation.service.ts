@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Annotacion } from '../interfaces/annotacion';
+import { Annotacion } from '../../interfaces/annotacion';
 
 @Injectable({
   providedIn: 'root'
