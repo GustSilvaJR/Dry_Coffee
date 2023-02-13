@@ -11,6 +11,7 @@ export const AdminLayoutRoutes: Routes = [
         path: 'user',
         component: UserComponent,
     },
+
     {
         path: 'entrada',
         component: TabelaEntradasComponent, 
@@ -20,5 +21,16 @@ export const AdminLayoutRoutes: Routes = [
                 loadChildren: () => import('./../entrada/entrada.routing').then(x => x.EntradaRoutes)
             }],
     },
-    { path: 'terreiro', component: TabelaTerreiroComponent },
+    
+    { 
+        path: 'terreiro',
+        component: TabelaTerreiroComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./../terreiro/terreiro.routing').then(x => x.TerreiroRoutes)
+            }
+        ]
+        
+    },
 ];
