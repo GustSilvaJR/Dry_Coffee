@@ -10,6 +10,8 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TerreiroDetalhesComponent } from '../terreiro-detalhes/terreiro-detalhes.component';
+import { Lote } from '../../interfaces/lote';
+import { GetLotesService } from '../../services/getLotes/get-lotes.service';
 
 @Component({
   selector: 'app-tabela-terreiro',
@@ -18,44 +20,39 @@ import { TerreiroDetalhesComponent } from '../terreiro-detalhes/terreiro-detalhe
 })
 export class TabelaTerreiroComponent implements OnInit, AfterViewInit {
 
-  public terreiroDatas: Terreiro[] = [];
+  public lotes: Lote[] = []; 
 
-  //Configurations in table
   //Instanciando tabela
-  public dataSource: MatTableDataSource<Terreiro>;
+  public dataSource: MatTableDataSource<Lote>;
 
-  public displayedColumns: string[] = ['Column1','Column2','Column3','Column4', 'acoes'];
+  public displayedColumns: string[] = ['nde','produtor','cod_produtor','fazenda', 'acoes'];
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     private _matPaginatorIntl: MatPaginatorIntl,
     public dialog: MatDialog,
+    public getLotesService:GetLotesService,
   ) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
+
     //Setando configurações da tabela
     this._matPaginatorIntl.itemsPerPageLabel = "";
     this._matPaginatorIntl.nextPageLabel = "Próximo";
     this._matPaginatorIntl.previousPageLabel = "Anterior";
     this._matPaginatorIntl.firstPageLabel = "Primeira Página";
     this._matPaginatorIntl.lastPageLabel = "Ultima Página";
+
+    //Consumindo serviço que irá retornar todas as entradas
+    this.lotes = this.getLotesService.getAllLotes();
   }
 
   ngAfterViewInit() {
     //Inicializando minha tabela e definindo os dados que a irão popular
-    this.dataSource = new MatTableDataSource<Terreiro>([
-      {Column1:"Amoeba", Column2:"Amoeba2", Column3:"Amoeba3", Column4:"Amoeba4"},
-      {Column1:"Feijao", Column2:"Feijao2", Column3:"Feijao3", Column4:"Feijao4"},
-      {Column1:"Arroz", Column2:"Arroz2", Column3:"Arroz3", Column4:"Arroz4"},
-      {Column1:"Arroz", Column2:"Arroz2", Column3:"Arroz3", Column4:"Arroz4"},
-      {Column1:"Arroz", Column2:"Arroz2", Column3:"Arroz3", Column4:"Arroz4"},
-      {Column1:"Arroz", Column2:"Arroz2", Column3:"Arroz3", Column4:"Arroz4"},
-      {Column1:"Arroz", Column2:"Arroz2", Column3:"Arroz3", Column4:"Arroz4"},
-      {Column1:"Arroz", Column2:"Arroz2", Column3:"Arroz3", Column4:"Arroz4"},
-    ]);
+    this.dataSource = new MatTableDataSource<Lote>(this.lotes);
 
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -80,10 +77,3 @@ export class TabelaTerreiroComponent implements OnInit, AfterViewInit {
     }
   }
 }
-
-interface Terreiro {
-  Column1:string,
-  Column2:string,
-  Column3:string,
-  Column4:string,
-};

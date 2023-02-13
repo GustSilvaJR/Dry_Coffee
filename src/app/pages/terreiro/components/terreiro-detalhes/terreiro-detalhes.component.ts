@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as moment from 'moment';
 
 //Angular Materials
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-// import { SendEntryService } from '../../services/sendEntry/send-entry.service';
-// import { Celula } from '../../interfaces/celula';
-// import { CellsAvailableService } from '../../services/cellsAvailable/cells-available.service';
+import { SaveAnnotationService } from '../../services/saveAnnotation/save-annotation.service';
+import { Annotacion } from '../../interfaces/annotacion';
 
 @Component({
   selector: 'app-terreiro-detalhes',
@@ -30,11 +30,10 @@ export class TerreiroDetalhesComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<TerreiroDetalhesComponent>,
     private formBuilder: FormBuilder,
-    // private sendEntryService:SendEntryService,
-    // private cellsAvailable:CellsAvailableService,
+    private saveAnnotationService:SaveAnnotationService
   ) { }
 
-  public formEntrada: FormGroup = this.formBuilder.group({
+  public formTerreiro: FormGroup = this.formBuilder.group({
     umidade: ['', [Validators.required]],
     observacao: [''],
     data: [''],
@@ -52,26 +51,17 @@ export class TerreiroDetalhesComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  public setorAux(): boolean {
-    const setor = this.formEntrada.get('setor').value;
-
-    if (setor == "Terreiro") {
-
-      this.celulaIsVisible = true;
-      return this.celulaIsVisible;
-
-    }else{
-
-      this.celulaIsVisible = false;
-      return this.celulaIsVisible;
-
-    }
-  }
 
   public sendForm():void{
 
-    // const answer = this.sendEntryService.send();
-    // alert(answer);
+    const date = new Date();
+
+    this.formTerreiro.get('data').setValue(date.toLocaleDateString());
+    this.formTerreiro.get('hora').setValue(date.getHours()+":"+date.getMinutes());
+
+    const formData:Annotacion = this.formTerreiro.value;
+
+    this.saveAnnotationService.save(formData);
 
   }
 
