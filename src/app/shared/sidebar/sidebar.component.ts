@@ -17,7 +17,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/terreiro', title: 'Terreiro', icon: './assets/img/sidebar/terreiro.png', class: '' },
   { path: '/lavador', title: 'Lavador', icon: './assets/img/sidebar/lavagem.png', class: '' },
   { path: '/pre-secagem', title: 'Pré-Secagem', icon: './assets/img/sidebar/maquina.png', class: '' },
-  { path: '/secagem', title: 'Secador', icon: './assets/img/sidebar/maquina.png', class: '' },
+  { path: '/secador', title: 'Secador', icon: './assets/img/sidebar/maquina.png', class: '' },
   { path: '/moega-descanso', title: 'Moega Descanso', icon: './assets/img/sidebar/maquina.png', class: '' },
   { path: '/tulha', title: 'Tulha', icon: './assets/img/sidebar/tulha.png', class: '' },
   { path: '/beneficio', title: 'Benefício', icon: './assets/img/sidebar/beneficios.png', class: '' }
