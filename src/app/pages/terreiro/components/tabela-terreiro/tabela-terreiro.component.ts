@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 
 
 //Angular Material
@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { TerreiroDetalhesComponent } from '../terreiro-detalhes/terreiro-detalhes.component';
 
 //Interface
-import { Lote } from '../../interfaces/lote';
+import { Lote } from '../../../shared/interfaces/lote';
 
 //Serviços
 import { GetLotesService } from '../../services/getLotes/get-lotes.service';

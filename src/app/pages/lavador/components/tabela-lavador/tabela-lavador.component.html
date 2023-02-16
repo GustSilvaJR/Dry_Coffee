@@ -1,0 +1,47 @@
+<div class="mat-elevation-z8 main-content">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+  
+      <!-- Coluna NDE -->
+      <ng-container matColumnDef="nde">
+        <th class="text-right" mat-header-cell *matHeaderCellDef mat-sort-header
+          sortActionDescription="Ordenando pelo NDE"> NDE</th>
+        <td mat-cell *matCellDef="let element"> {{element.nde}} </td>
+      </ng-container>
+  
+      <!-- Coluna nome do produtor -->
+      <ng-container matColumnDef="produtor">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenando pelo nome do produtor">
+          Produtor </th>
+        <td mat-cell *matCellDef="let element"> {{element.produtor}} </td>
+      </ng-container>
+  
+      <!-- Coluna código do produtor -->
+      <ng-container matColumnDef="cod_produtor">
+        <th *matHeaderCellDef mat-sort-header sortActionDescription="Ordenando pelo código do produtor">Cod. Produtor</th>
+        <td mat-cell *matCellDef="let element"> {{element.cod_produtor}} </td>
+      </ng-container>
+  
+      <!-- Coluna fazenda -->
+      <ng-container matColumnDef="fazenda">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordenando pela fazenda"> Fazenda
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.fazenda}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td class="action" mat-cell *matCellDef="let element">
+          <a mat-raised-button (click)="openDialog()">
+            <img src="./assets/img/button_actions/reg.png" />
+          </a>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons pageSize="10"
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

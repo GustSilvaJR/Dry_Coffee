@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Lote } from '../../../shared/interfaces/lote';
+import { Lote } from 'app/pages/interfaces/lote';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetLotesService {
-
+export class GetAllLotesLavadorService {
+  
   private lotes:Lote[] = [
     {nde:"1", produtor:"Lucas", cod_produtor:"1235", fazenda:"FazendaA"},
     {nde:"2", produtor:"Gustavo", cod_produtor:"1235", fazenda:"FazendaB"},
@@ -20,6 +20,4 @@ export class GetLotesService {
   public getAllLotes():Lote[]{
     return this.lotes;
   }
-
-  constructor() { }
 }
