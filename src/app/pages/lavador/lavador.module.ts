@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 //Components
 import { TabelaLavadorComponent } from './components/tabela-lavador/tabela-lavador.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { TabelaLavadorComponent } from './components/tabela-lavador/tabela-lavad
   imports: [
     CommonModule,
     RouterModule.forChild(LavadorRoutes),
+    SharedModule,
   ]
 })
 export class LavadorModule { }

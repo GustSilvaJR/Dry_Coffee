@@ -10,6 +10,9 @@ import { MatTableDataSource } from '@angular/material/table';
 //Interfaces
 import { Lote } from 'app/pages/interfaces/lote';
 
+//Services
+import { GetAllLotesLavadorService } from '../../services/get-all-lotes-lavador.service';
+
 @Component({
   selector: 'app-tabela-lavador',
   templateUrl: './tabela-lavador.component.html',
@@ -22,11 +25,12 @@ export class TabelaLavadorComponent implements OnInit, AfterViewInit {
   //Instanciando tabela
   public dataSource: MatTableDataSource<Lote>;
 
-  public displayedColumns: string[] = ['N_Lote','produtor','cod_produtor','fazenda', 'acoes'];
+  public displayedColumns: string[] = ['nde','produtor','cod_produtor','fazenda', 'acoes'];
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     private _matPaginatorIntl: MatPaginatorIntl,
+    private getAllLotesLavador: GetAllLotesLavadorService,
     public dialog: MatDialog,
   ) { }
 
@@ -34,9 +38,46 @@ export class TabelaLavadorComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
+
+    //Setando configurações da tabela
+    this._matPaginatorIntl.itemsPerPageLabel = "";
+    this._matPaginatorIntl.nextPageLabel = "Próximo";
+    this._matPaginatorIntl.previousPageLabel = "Anterior";
+    this._matPaginatorIntl.firstPageLabel = "Primeira Página";
+    this._matPaginatorIntl.lastPageLabel = "Ultima Página";
+
+    this.lotes = this.getAllLotesLavador.getAllLotes();
   }
 
   ngAfterViewInit(): void {
+    //Inicializando minha tabela e definindo os dados que a irão popular
+    this.dataSource = new MatTableDataSource<Lote>(this.lotes);
+
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  openDialog(): void {
+    // const dialogRef = this.dialog.open(TerreiroDetalhesComponent);
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    //   console.log(result);
+    // });
+
+    console.log("To be implemented");
+
+  }
+
+  announceSortChange(sortState: Sort) {
+
+    console.log("Passei");
+
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 
 }
