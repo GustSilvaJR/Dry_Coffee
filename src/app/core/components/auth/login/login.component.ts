@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 
           console.log(res);
 
-          environment.adress = res.adress;
+          environment.adress = res.apiAdress;
 
           localStorage.removeItem('access_token');
           localStorage.setItem('access_token', res.token);
