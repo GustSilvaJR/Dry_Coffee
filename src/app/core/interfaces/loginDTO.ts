@@ -1,4 +1,5 @@
 export interface LoginDTO {
     email:string,
-    password:string
+    password:string,
+    han_system: number,
 }

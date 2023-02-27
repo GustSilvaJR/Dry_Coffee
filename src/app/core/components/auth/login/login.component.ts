@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     const dataLogin: LoginDTO = {
       email: this.formLogin.get('email').value,
       password: Md5.hashStr(this.formLogin.get('password').value),
+      han_system:2
     };
 
     this.signInService.signIn(dataLogin).subscribe({

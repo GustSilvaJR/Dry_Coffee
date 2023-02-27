@@ -18,10 +18,11 @@ export class SignInService {
 
   constructor(private httpClient: HttpClient, private jwt:JwtHelperService) { }
 
-  public signIn({email, password}):Observable<any>{
+  public signIn({email, password, han_system}):Observable<any>{
     const data:LoginDTO = {
       email,
-      password
+      password,
+      han_system,
     };
 
     return this.httpClient.post<boolean>(this.url, data).pipe(
