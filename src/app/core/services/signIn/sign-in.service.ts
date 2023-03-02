@@ -27,7 +27,6 @@ export class SignInService {
 
     return this.httpClient.post<boolean>(this.url, data).pipe(
       res => {
-        console.log(res);
         return res;
       },
       error => {

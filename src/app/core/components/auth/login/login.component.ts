@@ -56,16 +56,16 @@ export class LoginComponent implements OnInit {
         } else {
           this.msgError = '';
 
-          console.log(res);
+          console.log("Resposta: ",res);
 
-          environment.adress = res.apiAdress;
+          environment.adress = res.adress_api;
 
           localStorage.removeItem('access_token');
           localStorage.setItem('access_token', res.token);
           
           this.router.navigate(['/dashboard']);
 
-          console.log(environment);
+          console.log("Variáveis de ambiente", environment);
 
         }
 
