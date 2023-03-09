@@ -61,8 +61,6 @@ export class TabelaLavadorComponent implements OnInit, AfterViewInit {
     // const dialogRef = this.dialog.open(TerreiroDetalhesComponent);
 
     // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   console.log(result);
     // });
 
     console.log("To be implemented");
@@ -70,8 +68,6 @@ export class TabelaLavadorComponent implements OnInit, AfterViewInit {
   }
 
   announceSortChange(sortState: Sort) {
-
-    console.log("Passei");
 
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);

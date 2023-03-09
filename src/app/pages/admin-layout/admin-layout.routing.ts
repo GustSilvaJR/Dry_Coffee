@@ -11,6 +11,7 @@ import { TabelaSecadorComponent } from '../secador/components/tabela-secador/tab
 import { TabelaMoegaDescansoComponent } from '../moega-descanso/components/tabela-moega-descanso/tabela-moega-descanso.component';
 import { TabelaTulhaComponent } from '../tulha/components/tabela-tulha/tabela-tulha.component';
 import { TabelaBeneficioComponent } from '../beneficio/components/tabela-beneficio/tabela-beneficio.component';
+import { ListUsersComponent } from '../admin/components/list-users/list-users.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: HomeComponent },
@@ -106,4 +107,14 @@ export const AdminLayoutRoutes: Routes = [
         ]
         
     },
+    {
+        path:'admin',
+        component:ListUsersComponent,
+        children: [
+            {
+                path:'',
+                loadChildren: () => import('./../admin/admin.routing').then(x => x.AdminRoutes)
+            }
+        ]
+    }
 ];

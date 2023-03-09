@@ -24,6 +24,11 @@
                         Perfil
                     </a>
                 </li>
+                <li *ngIf='tipo_usuario == "A"'>
+                    <a routerLink="/admin">
+                        Administrar
+                    </a>
+                </li>
                 <li>
                     <a href="#/" (click)="logOff()" >
                         Sair

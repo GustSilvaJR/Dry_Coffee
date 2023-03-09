@@ -37,12 +37,13 @@ export class LoginComponent implements OnInit {
     };
 
     this.signInService.signIn(dataLogin).subscribe({
-      next: (res) => {
+      next: (res:AuthDTO) => {
 
-        if (!res.auth) {
+        if (res.auth === false) {
           this.msgError = res.msg;
 
-          console.log(document.querySelector('#error'));
+          console.log(res);
+
           const span = document.querySelector('#error');
           if(span){
             
@@ -58,14 +59,23 @@ export class LoginComponent implements OnInit {
 
           console.log("Resposta: ",res);
 
-          environment.adress = res.adress_api;
+          const user = {
+            nome_usuario: res.name_user,
+            nome_empresa: res.name_enterprise,
+            tipo_usuario: res.type_user,
+            endereco_api: res.adress_api,
+            qtd_licencas: res.qtd_license,
+          }
 
+          //Setando token de autenticação
           localStorage.removeItem('access_token');
           localStorage.setItem('access_token', res.token);
+
+          //Setando dados do usuario logado
+          localStorage.removeItem('currentUser');
+          localStorage.setItem('current_user', JSON.stringify(user));
           
           this.router.navigate(['/dashboard']);
-
-          console.log("Variáveis de ambiente", environment);
 
         }
 

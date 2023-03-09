@@ -63,7 +63,6 @@ export class TabelaEntradasComponent implements OnInit, AfterViewInit {
   //Função responsável por abrir o modal, nesse caso o nosso componente entrada detalhes
   //A partir dela se pode definir quais dados se deseja passar para o modal
   openDialog(nde: string): void {
-    console.log(nde);
 
     const dialogRef = this.dialog.open(EntradaDetalhesComponent, {
       data: { nde: nde },
