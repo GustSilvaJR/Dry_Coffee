@@ -5,7 +5,8 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { RouterModule } from '@angular/router';
 import { AdminRoutes } from './admin.routing';
-
+import { SharedModule } from '../shared/shared.module';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { AdminRoutes } from './admin.routing';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(AdminRoutes)
+    RouterModule.forChild(AdminRoutes),
+    SharedModule,
+    MatIconModule,
   ]
 })
 export class AdminModule { }
