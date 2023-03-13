@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignInService } from 'app/core/services/signIn/sign-in.service';
 import { Md5 } from 'ts-md5';
-import { environment } from 'environments/environment';
 
 import { LoginDTO } from 'app/core/interfaces/loginDTO';
 import { Router } from '@angular/router';
@@ -61,8 +60,9 @@ export class LoginComponent implements OnInit {
 
           const user = {
             nome_usuario: res.name_user,
-            nome_empresa: res.name_enterprise,
             tipo_usuario: res.type_user,
+            nome_empresa: res.name_enterprise,
+            handle_empresa: res.handle_enterprise,
             endereco_api: res.adress_api,
             qtd_licencas: res.qtd_license,
           }

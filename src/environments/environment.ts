@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  adress:''
+  adressAuthSystem:'http://localhost:8000',
+  handle_sistema: 2,
 };

@@ -1,0 +1,29 @@
+<div id="bodyModal">
+    <form [formGroup]="formUser">
+        <div class="input-data">
+            <mat-form-field style="width: 40%;">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Nome de usuário" formControlName="nome_usuario">
+            </mat-form-field>
+
+            <mat-form-field style="width: 40%;">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="E-mail do usuário" formControlName="email">
+            </mat-form-field>
+        </div>
+
+        <div class="input-data">
+            <mat-form-field style="width: 90%;">
+                <mat-label>Senha</mat-label>
+                <input type="password" matInput placeholder="Senha de usuario" formControlName="senha">
+            </mat-form-field>
+        </div>
+
+        <input style="display: none;" type="number" formControlName="handle_empresa" value='{{handle_empresa}}' />
+
+        <div class="btns">
+            <button mat-raised-button (click)="submitForm()" color="primary">Salvar</button>
+            <button mat-raised-button mat-dialog-close color="warn">Cancelar</button>
+        </div>
+    </form>
+</div>

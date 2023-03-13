@@ -5,6 +5,7 @@ interface AuthDTO {
     adress_api: string,
     qtd_license: number,
     token: string,
+    handle_enterprise: number,
     auth: boolean,
     msg: string,
 }
