@@ -30,12 +30,12 @@
       <th mat-header-cell *matHeaderCellDef> </th>
       <td class="data-flex" mat-cell *matCellDef="let element">
 
-        <button class="btn-action" mat-fab color="warn" aria-label="Example icon button with a delete icon">
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        <button (click)="deleteUser(element.NOM_EMAIL, element.NOM_USUARIO)" class="btn-action" mat-fab color="warn" aria-label="Botão para deletar usuário">
+          <mat-icon aria-hidden="false" aria-label="Ícone de deletar" fontIcon="delete"></mat-icon>
         </button>
 
-        <button class="btn-action" style="margin-left: 20px;" mat-fab color="primary" aria-label="Example icon button with a delete icon">
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+        <button class="btn-action" style="margin-left: 20px;" mat-fab color="primary" aria-label="Botão para editar usuário">
+          <mat-icon aria-hidden="false" aria-label="Ícone de editar" fontIcon="edit"></mat-icon>
         </button>
 
       </td>

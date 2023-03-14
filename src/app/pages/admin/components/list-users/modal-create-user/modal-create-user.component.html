@@ -22,7 +22,7 @@
         <input style="display: none;" type="number" formControlName="handle_empresa" value='{{handle_empresa}}' />
 
         <div class="btns">
-            <button mat-raised-button (click)="submitForm()" color="primary">Salvar</button>
+            <button mat-raised-button mat-dialog-close (click)="submitForm()" color="primary">Salvar</button>
             <button mat-raised-button mat-dialog-close color="warn">Cancelar</button>
         </div>
     </form>

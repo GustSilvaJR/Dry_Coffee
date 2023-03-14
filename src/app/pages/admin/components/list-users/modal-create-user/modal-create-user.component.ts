@@ -31,8 +31,6 @@ export class ModalCreateUserComponent implements OnInit {
   });
 
   public submitForm(){
-  
-    console.log(this.formUser.value);
 
     const dataNewUser = {
       nom_usuario: this.formUser.get('nome_usuario').value,
@@ -47,6 +45,7 @@ export class ModalCreateUserComponent implements OnInit {
       },
       error: (error) => {
         console.log("Error: ", error);
+        alert("Não foi possível criar um novo usuário, entre em contato com o administrador do sistema.")
       }
     })
     
