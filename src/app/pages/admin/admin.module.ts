@@ -16,6 +16,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ModalCreateUserComponent } from './components/list-users/modal-create-user/modal-create-user.component';
 import {MatInputModule} from '@angular/material/input';
 import { ModalUpdateUserComponent } from './components/list-users/modal-update-user/modal-update-user.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ModalUpdateUserComponent } from './components/list-users/modal-update-u
     MatIconModule,
     MatDialogModule,
     MatInputModule,
+    MatFormFieldModule,
   ]
 })
 export class AdminModule { }

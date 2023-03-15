@@ -10,6 +10,7 @@ import { ModalCreateUserComponent } from './modal-create-user/modal-create-user.
 import { DeleteUserService } from '../../services/deleteUser/delete-user.service';
 import { ModalDeleteUserComponent } from './modal-delete-user/modal-delete-user.component';
 import { ModalUpdateUserComponent } from './modal-update-user/modal-update-user.component';
+import { GetUserByEmailService } from '../../services/getUserByEmail/get-user-by-email.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ListUsersComponent implements OnInit, AfterViewInit {
 
   public dataSource: any;
 
-  constructor(private listUsersService: ListUsersService, private deleteUserService: DeleteUserService, public dialog: MatDialog) { }
+  constructor(private listUsersService: ListUsersService, private deleteUserService: DeleteUserService, private getUserService:GetUserByEmailService , public dialog: MatDialog) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -61,7 +62,30 @@ export class ListUsersComponent implements OnInit, AfterViewInit {
   }
 
   updateUser(email: string){
-    const modalUpdate = this.dialog.open(ModalUpdateUserComponent)
+
+    console.log('PORRA', email);
+
+    let user:UserDTO;
+    
+    this.getUserService.execute(email).subscribe({
+      next: res => {
+        console.log(res);
+        user = res;
+
+        const modalUpdate = this.dialog.open(ModalUpdateUserComponent, {
+          data: user,
+        })
+
+        modalUpdate.afterClosed().subscribe(result =>{
+          this.listUsers();
+        })
+      },
+      error: err => {
+        alert("Erro ao obter dados do usuário: "+ err);
+      }
+    })
+
+    
   }
 
   deleteUser(email: string, name:string) {

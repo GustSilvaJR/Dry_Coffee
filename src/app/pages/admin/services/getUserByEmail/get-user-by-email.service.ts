@@ -12,7 +12,11 @@ export class GetUserByEmailService {
   constructor(private httpClient: HttpClient) { }
 
   public execute(email: string):Observable<UserDTO>{
-    return this.httpClient.get<UserDTO>(environment.adressAuthSystem+'/api/user/getUser').pipe(
+    return this.httpClient.get<UserDTO>(environment.adressAuthSystem+'/api/user/getUser', {
+      params: {
+        email,
+      }
+    }).pipe(
       res => res,
       err => err
     )

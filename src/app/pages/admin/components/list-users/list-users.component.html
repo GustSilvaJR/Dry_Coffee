@@ -34,7 +34,7 @@
           <mat-icon aria-hidden="false" aria-label="Ícone de deletar" fontIcon="delete"></mat-icon>
         </button>
 
-        <button class="btn-action" style="margin-left: 20px;" mat-fab color="primary" aria-label="Botão para editar usuário">
+        <button (click)="updateUser(element.NOM_EMAIL)" class="btn-action" style="margin-left: 20px;" mat-fab color="primary" aria-label="Botão para editar usuário">
           <mat-icon aria-hidden="false" aria-label="Ícone de editar" fontIcon="edit"></mat-icon>
         </button>
 
