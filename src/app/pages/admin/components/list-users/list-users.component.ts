@@ -20,7 +20,7 @@ import { GetUserByEmailService } from '../../services/getUserByEmail/get-user-by
 })
 export class ListUsersComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['num', 'nome', 'email', 'tipoUser', 'acoes'];
+  displayedColumns: string[] = ['num', 'nome', 'email', 'tipoUser', 'statusUser', 'acoes'];
 
   public users: UserDTO[];
 
@@ -48,6 +48,7 @@ export class ListUsersComponent implements OnInit, AfterViewInit {
         res.forEach((element) => {
           element.pos = i;
           i++;
+          console.log(element)
         })
 
         this.users = res;
