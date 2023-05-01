@@ -1,17 +1,23 @@
-<div id="modalDeleteBody">
+<div class="gran-parent">
 
-  <h1 mat-dialog-title>Deseja realmente deletar o usuário: <strong>{{data}}</strong> ?</h1>
+  <div id="modalDeleteBody">
 
-  <div id="btns" mat-dialog-actions>
-    <button mat-button mat-raised-button mat-dialog-close (click)="onNoClick()" color="primary"
-      aria-label="Botão para cancelar deleção de usuário">
-      Cancelar
-    </button>
+    <h1 mat-dialog-title>Deseja realmente deletar o usuário: <strong>{{data}}</strong> ?</h1>
 
-    <button mat-button style="margin-left: 20px;" mat-raised-button mat-dialog-close cdkFocusInitial (click)="onYesClick()" color="warn"
-      aria-label="Botão para confirmar deleção de usuário">
-      Deletar
+    <div id="btns" mat-dialog-actions>
+      <button mat-button mat-raised-button mat-dialog-close (click)="onNoClick()" color="primary"
+        aria-label="Botão para cancelar deleção de usuário">
+        Cancelar
+      </button>
+
+      <button mat-button style="margin-left: 20px;" mat-raised-button mat-dialog-close cdkFocusInitial
+        (click)="onYesClick()" color="warn" aria-label="Botão para confirmar deleção de usuário">
+        Deletar
+      </button>
+    </div>
+
+    <button class="icon" mat-fab color="warn">
+      <mat-icon aria-hidden="false" aria-label="Ícone de editar" fontIcon="delete"></mat-icon>
     </button>
   </div>
 </div>
-

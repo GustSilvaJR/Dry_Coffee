@@ -12,9 +12,9 @@ import { UpdateUserService } from 'app/pages/admin/services/updateUser/update-us
 })
 export class ModalUpdateUserComponent implements OnInit {
 
-  public emailOriginal:string = this.data.nom_email;
+  public emailOriginal: string = this.data.nom_email;
 
-  constructor( private listUserService: ListUsersService, private updateUserService: UpdateUserService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef<ModalUpdateUserComponent>, @Inject(MAT_DIALOG_DATA) public data: UserDTO) { }
+  constructor(private listUserService: ListUsersService, private updateUserService: UpdateUserService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef<ModalUpdateUserComponent>, @Inject(MAT_DIALOG_DATA) public data: UserDTO) { }
 
   ngOnInit(): void {
   }
@@ -24,10 +24,10 @@ export class ModalUpdateUserComponent implements OnInit {
     nome_email: [this.data.nom_email, [Validators.email, Validators.required]],
     flg_status: [this.data.flg_status, [Validators.required]],
     flg_tipo_usuario: [this.data.flg_tipo_usuario, [Validators.required]],
-    senha: ['', [Validators.required]]
+    senha: ['', [Validators.required, Validators.minLength(5)]]
   });
 
-  public async  submitFormUpdate():Promise<boolean> {
+  public submitFormUpdate() {
 
     const user = {
       nome_usuario: this.formUserUpdate.get('nome_usuario').value,
@@ -39,23 +39,21 @@ export class ModalUpdateUserComponent implements OnInit {
     }
 
     let response: boolean;
-    
-    await this.updateUserService.execute(user).subscribe({
-      next: res =>{   
-       response = res
-      },  
+
+    this.updateUserService.execute(user).subscribe({
+      next: res => {
+        response = res
+      },
       error: err => err,
     })
 
     let han_empresa = JSON.parse(localStorage.getItem('current_user')).handle_empresa;
 
-    alert('Usuario alterado com sucesso');
-
     this.listUserService.listUsers(han_empresa);
 
-    
+    console.log('Resposta envio: ', response);
 
-    return response;
+    this.dialogRef.close();
 
   }
 

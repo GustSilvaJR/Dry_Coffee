@@ -18,6 +18,29 @@
     align-items: center;
 }
 
+.gran-parent{
+    position: relative;
+
+    margin: 20px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.icon{
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    top: -10px;
+    right: -10px;
+
+    width: 45px;
+    height: 45px;
+}
+
 h1{
     font-weight: 350;
 }

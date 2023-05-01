@@ -26,9 +26,10 @@ export class ModalCreateUserComponent implements OnInit {
   public formUser: FormGroup = this.formBuilder.group({
     nome_usuario: ['', [Validators.required]],
     email: ['', [Validators.email, Validators.required]],
-    senha: ['', [Validators.required]],
+    senha: ['', [Validators.required, Validators.minLength(5)]],
     handle_empresa: ['', [Validators.required]],
   });
+
 
   public submitForm(){
 
