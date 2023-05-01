@@ -24,18 +24,18 @@ import { GetLotesService } from '../../services/getLotes/get-lotes.service';
 })
 export class TabelaTerreiroComponent implements OnInit, AfterViewInit {
 
-  public lotes: Lote[] = []; 
+  public lotes: Lote[] = [];
 
   //Instanciando tabela
   public dataSource: MatTableDataSource<Lote>;
 
-  public displayedColumns: string[] = ['nde','produtor','cod_produtor','fazenda', 'acoes'];
+  public displayedColumns: string[] = ['celula', 'peso_total', 'medida_total', 'produtor', 'fazenda', 'origem', 'data_ab', 'hora_ab', 'acoes'];
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     private _matPaginatorIntl: MatPaginatorIntl,
     public dialog: MatDialog,
-    public getLotesService:GetLotesService,
+    public getLotesService: GetLotesService,
   ) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
