@@ -64,8 +64,6 @@ export class ListUsersComponent implements OnInit, AfterViewInit {
 
   updateUser(email: string){
 
-    console.log('PORRA', email);
-
     let user:UserDTO;
     
     this.getUserService.execute(email).subscribe({
@@ -75,6 +73,7 @@ export class ListUsersComponent implements OnInit, AfterViewInit {
 
         const modalUpdate = this.dialog.open(ModalUpdateUserComponent, {
           data: user,
+          panelClass:'crud-user'
         })
 
         modalUpdate.afterClosed().subscribe(result =>{
@@ -92,7 +91,8 @@ export class ListUsersComponent implements OnInit, AfterViewInit {
   deleteUser(email: string, name:string) {
 
     const modalDelete = this.dialog.open(ModalDeleteUserComponent, {
-      data: name
+      data: name,
+      panelClass: 'crud-user'
     })
 
     modalDelete.afterClosed().subscribe(result => {
@@ -111,9 +111,9 @@ export class ListUsersComponent implements OnInit, AfterViewInit {
     })
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ModalCreateUserComponent);
-0
+  createUser() {
+    const dialogRef = this.dialog.open(ModalCreateUserComponent, { panelClass: 'crud-user'});
+
     dialogRef.afterClosed().subscribe(result => {
       this.listUsers();
     });

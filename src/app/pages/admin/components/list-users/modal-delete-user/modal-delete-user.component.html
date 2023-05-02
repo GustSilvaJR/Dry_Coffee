@@ -5,14 +5,14 @@
     <h1 mat-dialog-title>Deseja realmente deletar o usuário: <strong>{{data}}</strong> ?</h1>
 
     <div id="btns" mat-dialog-actions>
-      <button mat-button mat-raised-button mat-dialog-close (click)="onNoClick()" color="primary"
-        aria-label="Botão para cancelar deleção de usuário">
-        Cancelar
-      </button>
-
       <button mat-button style="margin-left: 20px;" mat-raised-button mat-dialog-close cdkFocusInitial
         (click)="onYesClick()" color="warn" aria-label="Botão para confirmar deleção de usuário">
         Deletar
+      </button>
+      
+      <button mat-button mat-raised-button mat-dialog-close (click)="onNoClick()" color="primary"
+        aria-label="Botão para cancelar deleção de usuário">
+        Cancelar
       </button>
     </div>
 

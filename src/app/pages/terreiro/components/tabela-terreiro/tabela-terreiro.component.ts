@@ -16,6 +16,7 @@ import { Lote } from '../../../shared/interfaces/lote';
 
 //Serviços
 import { GetLotesService } from '../../services/getLotes/get-lotes.service';
+import { TerreiroInfoComponent } from '../terreiro-info/terreiro-info.component';
 
 @Component({
   selector: 'app-tabela-terreiro',
@@ -70,6 +71,15 @@ export class TabelaTerreiroComponent implements OnInit, AfterViewInit {
       console.log(result);
     });
 
+  }
+
+  openInfo(): void {
+    const dialogInfo = this.dialog.open(TerreiroInfoComponent);
+
+    dialogInfo.afterClosed().subscribe(result => {
+      console.log('Exit');
+    });
+    
   }
 
   announceSortChange(sortState: Sort) {
